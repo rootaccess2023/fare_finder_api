@@ -20,6 +20,7 @@ end
 puts "Lines created successfully."
 
 lrt1_line = Line.find_by(name: "lrt1")
+lrt2_line = Line.find_by(name: "lrt2")
 
 lrt1Stations = [
   { name: "Roosevelt", distance_from_start: 0 },
@@ -44,6 +45,22 @@ lrt1Stations = [
   { name: "Baclaran", distance_from_start: 18.073 }
 ];
 
+lrt2Stations = [
+  { name: "Antipolo", distance_from_start: 0.000 },
+  { name: "Marikina", distance_from_start: 2.232 },
+  { name: "Santolan", distance_from_start: 4.027 },
+  { name: "Katipunan", distance_from_start: 5.997 },
+  { name: "Anonas", distance_from_start: 6.952 },
+  { name: "Araneta Center–Cubao", distance_from_start: 8.390 },
+  { name: "Betty Go-Belmonte", distance_from_start: 9.554 },
+  { name: "Gilmore", distance_from_start: 10.629 },
+  { name: "J. Ruiz", distance_from_start: 11.557 },
+  { name: "V. Mapa", distance_from_start: 12.791 },
+  { name: "Pureza", distance_from_start: 14.148 },
+  { name: "Legarda", distance_from_start: 15.537 },
+  { name: "Recto", distance_from_start: 16.587 }
+];
+
 lrt1Stations.each do |station|
   Lrt1.create(
     name: station[:name],
@@ -52,4 +69,12 @@ lrt1Stations.each do |station|
   )
 end
 
-puts "LRT 1 stations created successfully."
+lrt2Stations.each do |station|
+  Lrt2.create(
+    name: station[:name],
+    distance_from_start: station[:distance_from_start],
+    line_id: lrt2_line.id
+  )
+end
+
+puts "LRT 2 stations created successfully."

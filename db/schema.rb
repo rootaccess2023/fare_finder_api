@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_11_02_085034) do
+ActiveRecord::Schema[7.0].define(version: 2024_11_02_225405) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -30,5 +30,15 @@ ActiveRecord::Schema[7.0].define(version: 2024_11_02_085034) do
     t.index ["line_id"], name: "index_lrt1s_on_line_id"
   end
 
+  create_table "lrt2s", force: :cascade do |t|
+    t.string "name"
+    t.float "distance_from_start"
+    t.bigint "line_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["line_id"], name: "index_lrt2s_on_line_id"
+  end
+
   add_foreign_key "lrt1s", "lines"
+  add_foreign_key "lrt2s", "lines"
 end
