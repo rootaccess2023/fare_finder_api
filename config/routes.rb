@@ -4,4 +4,9 @@ Rails.application.routes.draw do
       get :fare
     end
   end
+  resources :lrt2, only: [:index] do
+    collection do
+      get :fare
+    end
+  end
 end
