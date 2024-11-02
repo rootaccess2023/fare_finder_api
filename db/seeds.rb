@@ -21,6 +21,7 @@ puts "Lines created successfully."
 
 lrt1_line = Line.find_by(name: "lrt1")
 lrt2_line = Line.find_by(name: "lrt2")
+mrt3_line = Line.find_by(name: "mrt3")
 
 lrt1Stations = [
   { name: "Roosevelt", distance_from_start: 0 },
@@ -61,6 +62,23 @@ lrt2Stations = [
   { name: "Recto", distance_from_start: 16.587 }
 ];
 
+mrt3Stations = [
+  { name: "North Avenue", distance_from_start: 0.000 },
+  { name: "Quezon Avenue", distance_from_start: 1.200 },
+  { name: "GMA–Kamuning", distance_from_start: 2.200 },
+  { name: "Araneta Center–Cubao", distance_from_start: 4.100 },
+  { name: "Santolan–Annapolis", distance_from_start: 5.600 },
+  { name: "Ortigas", distance_from_start: 7.900 },
+  { name: "Shaw Boulevard", distance_from_start: 8.700 },
+  { name: "Boni", distance_from_start: 9.700 },
+  { name: "Guadalupe", distance_from_start: 10.500 },
+  { name: "Buendia", distance_from_start: 12.500 },
+  { name: "Ayala", distance_from_start: 13.450 },
+  { name: "Magallanes", distance_from_start: 14.650 },
+  { name: "Taft Avenue", distance_from_start: 16.700 }
+];
+
+
 lrt1Stations.each do |station|
   Lrt1.create(
     name: station[:name],
@@ -68,6 +86,8 @@ lrt1Stations.each do |station|
     line_id: lrt1_line.id
   )
 end
+
+puts "LRT 1 stations created successfully."
 
 lrt2Stations.each do |station|
   Lrt2.create(
@@ -78,3 +98,13 @@ lrt2Stations.each do |station|
 end
 
 puts "LRT 2 stations created successfully."
+
+mrt3Stations.each do |station|
+  Mrt3.create(
+    name: station[:name],
+    distance_from_start: station[:distance_from_start],
+    line_id: mrt3_line.id
+  )
+end
+
+puts "MRT 3 stations created successfully."
