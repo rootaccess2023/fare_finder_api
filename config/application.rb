@@ -14,7 +14,7 @@ module FareFinderApi
     # Enable CORS for development environment
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'https://farefinder.vercel.app/'
+        origins 'https://farefinder.vercel.app'
         resource '*',
           headers: :any,
           methods: [:get, :post, :put, :patch, :delete, :options, :head]
