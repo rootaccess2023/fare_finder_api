@@ -14,6 +14,7 @@ class Mrt3 < ApplicationRecord
 
     if start_station && end_station
       # Calculating distance between stations
+      distance_true = (end_station.distance_from_start - start_station.distance_from_start).round(1)
       distance = ((end_station.distance_from_start - start_station.distance_from_start).abs).round(1)
 
       # Fare Price
@@ -28,6 +29,16 @@ class Mrt3 < ApplicationRecord
       # Station Between
       stations_between = stations_in_between(start_station, end_station)
 
+      # Number of Stops
+      number_of_stops = stations_between.count + 1
+
+      # Train Direction
+      direction = distance_true > 0 ? "Southbound" : "Northbound";
+
+      # Line Information
+      line = "Metro Railway Train 3"
+
+
       # Return values
       {
         sjt_fare: sjt_fare,
@@ -36,7 +47,10 @@ class Mrt3 < ApplicationRecord
         time: time_in_minutes,
         start_station: start_station,
         end_station: end_station,
-        stations_between: stations_between
+        stations_between: stations_between,
+        number_of_stops: number_of_stops,
+        direction: direction,
+        line: line
       }
     else
       { error: "One or both station IDs are not valid." }
