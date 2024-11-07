@@ -48,7 +48,9 @@ class Lrt1 < ApplicationRecord
         stations_between: stations_between,
         number_of_stops: number_of_stops,
         direction: direction,
-        line: line
+        line: line,
+        base_fare_sjt: BASE_FARE_SJT,
+        base_fare_svt: BASE_FARE_SVT,
       }
     else
       { error: "One or both station IDs are not valid." }
