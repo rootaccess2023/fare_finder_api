@@ -34,6 +34,9 @@ class Lrt1 < ApplicationRecord
       # Train Direction
       direction = distance_true > 0 ? "Southbound" : "Northbound";
 
+      # Line Information
+      line = "Light Railway Train 1"
+
       # Return values
       {
         sjt_fare: sjt_fare,
@@ -45,7 +48,7 @@ class Lrt1 < ApplicationRecord
         stations_between: stations_between,
         number_of_stops: number_of_stops,
         direction: direction,
-        line: start_station.line,
+        line: line
       }
     else
       { error: "One or both station IDs are not valid." }
