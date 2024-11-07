@@ -28,6 +28,8 @@ class Lrt1 < ApplicationRecord
       # Station Between (accounting for reverse direction if needed)
       stations_between = stations_in_between(start_station, end_station, distance_true)
 
+      number_of_stops = stations_between.count + 1
+
       # Return values
       {
         sjt_fare: sjt_fare,
@@ -36,7 +38,8 @@ class Lrt1 < ApplicationRecord
         time: time_in_minutes,
         start_station: start_station,
         end_station: end_station,
-        stations_between: stations_between
+        stations_between: stations_between,
+        number_of_stops: number_of_stops
       }
     else
       { error: "One or both station IDs are not valid." }
