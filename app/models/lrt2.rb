@@ -33,7 +33,7 @@ class Lrt2 < ApplicationRecord
       number_of_stops = stations_between.count + 1
 
       # Train Direction
-      direction = distance_true > 0 ? "Southbound" : "Northbound";
+      direction = distance_true > 0 ? "Eastbound" : "Westbound";
 
       # Line Information
       line = "Light Railway Train 2"
