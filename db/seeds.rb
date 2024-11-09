@@ -1,15 +1,15 @@
 lines = [
   {
     name: "lrt1",
-    speed: 60
+    speed: 18
   },
   {
     name: "lrt2",
-    speed: 60
+    speed: 18
   },
   {
     name: "mrt3",
-    speed: 60
+    speed: 18
   }
 ]
 
